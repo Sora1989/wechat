@@ -1,0 +1,91 @@
+/* ::::: https://wechat.kuakao.com/static/content/css/app.23e5098f19ecaeccb22704018fd3d83b.css ::::: */
+
+body { font-family: PingFang SC,HelveticaNeue,Microsoft Yahei,Arial,sans-serif; font-size: 12px; width: 100%; height: 100%; background: none repeat scroll 0% 0% rgb(247, 247, 247); }
+b, body, button, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, html, img, input, legend, li, ol, p, span, ul { margin: 0px; padding: 0px; border: medium none; }
+a, button, img, input, table, td, textarea, th { margin: 0px; padding: 0px; }
+li, ol, ul { list-style: none outside none; }
+img { border: medium none; }
+body, html { height: 100%; }
+.flex { display: flex; }
+.flex-v { flex-direction: column; }
+.flex-h { flex-flow: row nowrap; }
+.flex-ce-c { align-items: center; }
+.flex-zhu-c { justify-content: center; }
+.flex-spaceBetween { justify-content: space-between; }
+.mr10 { margin-right: 0.08rem; }
+.mint-indicator, .mint-indicator-wrapper { background: none repeat scroll 0% 0% transparent; }
+.mint-spinner-triple-bounce-bounce1, .mint-spinner-triple-bounce-bounce2, .mint-spinner-triple-bounce-bounce3 { background-color: rgb(153, 153, 153); }
+* { -moz-user-select: none; }
+.mint-button:active:not(.is-disabled):after { opacity: 0.4; }
+.mint-spinner-snake { animation: 0.8s linear 0s normal none infinite mint-spinner-rotate; border: 4px solid transparent; border-radius: 50%; }
+.mint-spinner-triple-bounce-bounce1, .mint-spinner-triple-bounce-bounce2, .mint-spinner-triple-bounce-bounce3 { border-radius: 100%; display: inline-block; animation: 1.4s ease-in-out 0s normal both infinite mint-spinner-triple-bounce; }
+.mint-spinner-triple-bounce-bounce1 { animation-delay: -0.32s; }
+.mint-spinner-triple-bounce-bounce2 { animation-delay: -0.16s; }
+.mint-checklist.is-limit .mint-checkbox-core:not(:checked) { background-color: rgb(217, 217, 217); border-color: rgb(217, 217, 217); }
+.mint-loadmore { overflow: hidden; }
+.mint-loadmore-bottom, .mint-loadmore-top { text-align: center; height: 50px; line-height: 50px; }
+.mint-loadmore-top { margin-top: -50px; }
+.mint-swipe, .mint-swipe-items-wrap { overflow: hidden; position: relative; height: 100%; }
+.mint-swipe-items-wrap > div { position: absolute; transform: translateX(-100%); width: 100%; height: 100%; display: none; }
+.mint-swipe-items-wrap > div.is-active { display: block; transform: none; }
+.mint-swipe-indicators { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); }
+.mint-swipe-indicator { width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: none repeat scroll 0% 0% rgb(0, 0, 0); opacity: 0.2; margin: 0px 3px; }
+.mint-swipe-indicator.is-active { background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+.mint-indicator { transition: opacity 0.2s linear 0s; }
+.mint-indicator-wrapper { top: 50%; left: 50%; position: fixed; transform: translate(-50%, -50%); border-radius: 5px; background: none repeat scroll 0% 0% rgba(0, 0, 0, 0.7); color: rgb(255, 255, 255); box-sizing: border-box; text-align: center; }
+.mint-indicator-text { display: block; color: rgb(255, 255, 255); text-align: center; margin-top: 10px; font-size: 16px; }
+.mint-indicator-spin { display: inline-block; text-align: center; }
+.mint-indicator-mask { top: 0px; left: 0px; position: fixed; width: 100%; height: 100%; opacity: 0; background: none repeat scroll 0% 0% transparent; }
+@font-face {
+	font-family: "mintui";
+	src: url('undefined');
+}
+.mint-loadmore-top span { transition: all 0.2s linear 0s; display: inline-block; vertical-align: middle; }
+.mint-indicator .mint-indicator-wrapper { background: none repeat scroll 0% 0% transparent; }
+.mint-indicator .mint-indicator-wrapper .mint-indicator-spin .mint-spinner-triple-bounce .mint-spinner-triple-bounce-bounce1, .mint-indicator .mint-indicator-wrapper .mint-indicator-spin .mint-spinner-triple-bounce .mint-spinner-triple-bounce-bounce2, .mint-indicator .mint-indicator-wrapper .mint-indicator-spin .mint-spinner-triple-bounce .mint-spinner-triple-bounce-bounce3 { background-color: rgb(70, 144, 255) ! important; }
+.mint-loadmore-bottom .mint-spinner-snake, .mint-loadmore-top .mint-spinner-snake { height: 12px ! important; width: 12px ! important; border: 2px solid transparent; }
+.page-infinite-loading { text-align: center; padding-top: 0.1rem; color: rgb(204, 204, 204); font-size: 0.28rem; }
+.page-infinite-loading .mint-spinner-snake { height: 12px ! important; width: 12px ! important; border: 2px solid transparent; }
+.tabs, .top { position: fixed; }
+.tabs { bottom: 0px; z-index: 100; background: none repeat scroll 0% 0% rgb(255, 255, 255); box-sizing: border-box; border-top: 0.01rem solid rgb(231, 231, 231); padding-top: 0.15rem; padding-bottom: 0.1rem; }
+.tabs, .tabs .tabs_ul { width: 100%; }
+.tabs .tabs_ul .tabs_li { width: 33.33%; text-align: center; font-size: 0.22rem; }
+.tabs .tabs_ul .tabs_li .tab .tab_img { width: 0.46rem; height: 0.42rem; }
+.tabs .tabs_ul .tabs_li .tab .tab_text { text-align: center; }
+.tabs .tabs_ul .tabs_li_default { color: rgb(174, 174, 174); }
+.tabs .tabs_ul .tabs_li_active { color: rgb(70, 144, 255); }
+.index_home { width: 100%; overflow: hidden; }
+.index_home .index_one { width: 100%; }
+.index_home .index_one .index_banner { width: 100%; height: 2.7rem; }
+.index_home .index_one .index_banner .carouser { width: 100%; height: 2.71rem; }
+.index_home .index_one .index_banner .carouser .carouser-item { background-size: cover; text-align: center; line-height: 2.7rem; }
+.index_home .index_one .index_banner .mint-swipe-indicators { height: 0.07rem; bottom: 0.16rem ! important; left: inherit ! important; right: 0.3rem ! important; transform: translateX(0px) ! important; }
+.index_home .index_one .index_banner .mint-swipe-indicators .mint-swipe-indicator { float: left; width: 0.22rem; height: 0.03rem; border-radius: 0.01rem; background: none repeat scroll 0% 0% rgb(255, 255, 255); margin-left: 0.13rem; opacity: 0.4; }
+.index_home .index_one .index_banner .mint-swipe-indicators .mint-swipe-indicator.is-active { background: none repeat scroll 0% 0% rgb(255, 255, 255); opacity: 1; }
+.index_home .teacher-introduce { width: 100%; background: none repeat scroll 0% 0% rgb(250, 250, 250); }
+.index_home .teacher-introduce .choose-items { width: 100%; height: 1rem; font-size: 0.3rem; color: rgb(51, 51, 51); background: none repeat scroll 0% 0% rgb(255, 255, 255); border: 0.01rem solid rgb(231, 231, 231); }
+.index_home .teacher-introduce .choose-items .choose-school { width: 50%; height: 1rem; }
+.index_home .teacher-introduce .choose-items .choose-school .choose-school-major { width: 100%; line-height: 1rem; height: 1rem; position: relative; }
+.index_home .teacher-introduce .choose-items .choose-school .choose-school-major p { width: 100%; height: 100%; margin: 0px auto; text-align: center; display: inline-block; }
+.index_home .teacher-introduce .choose-items .choose-school .choose-school-major p span { display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.index_home .teacher-introduce .choose-items .choose-school .choose-school-major img { margin-left: 0.14rem; width: 0.12rem; height: 0.09rem; position: absolute; top: 0.45rem; }
+.index_home .teacher-introduce .choose-items .oneBorder { width: 0.01rem; border-right: 0.01rem solid rgb(231, 231, 231); border-bottom: 0.01rem solid rgb(231, 231, 231); height: 1rem; }
+.index_home .teacher-introduce .index_section { width: 100%; }
+.index_home .teacher-introduce .index_section .index_ul { width: 100%; margin-top: 0.2rem; }
+.index_home .teacher-introduce .index_section .index_ul .index_li { background: none repeat scroll 0% 0% rgb(255, 255, 255); width: 100%; margin-top: 0.2rem; display: table; border-bottom: 0.01rem solid rgb(231, 231, 231); padding: 0.4rem 0.3rem 0.34rem; box-sizing: border-box; position: relative; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .index_teacher_img { width: 0.8rem; height: 0.8rem; border-radius: 100%; overflow: hidden; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .index_teacher_img .index_active { display: block; width: 100%; height: inherit; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .index_teacher_item { width: 5.8rem; display: inline-block; overflow: hidden; padding-left: 0.3rem; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .index_teacher_item .service_total { width: 100%; height: 0.42rem; line-height: 0.42rem; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .index_teacher_item .service_total .total_name { font-size: 0.34rem; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .index_teacher_item .service_total .total_peo { font-size: 0.26rem; color: rgb(174, 174, 174); }
+.index_home .teacher-introduce .index_section .index_ul .index_li .teacher_school { width: 100%; line-height: 0.4rem; font-size: 0.3rem; color: rgb(102, 102, 102); margin-top: 0.08rem; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .teacher_introduces { color: rgb(124, 124, 124); margin-top: 0.04rem; font-size: 0.3rem; display: block; }
+.index_home .teacher-introduce .index_section .index_ul .index_li .teacher_introduces .graduateFirstScore { color: rgb(70, 144, 255); }
+.index_home .teacher-introduce .index_section .index_ul .index_li .teacher_introduces .subject-list { height: 0.6rem; line-height: 0.5rem; }
+.index_home .no-data-part { background: none repeat scroll 0% 0% rgb(255, 255, 255); box-sizing: border-box; margin-top: 0.25rem; padding-top: 1.28rem; padding-bottom: 2.54rem; }
+.index_home .no-data-part img { width: 3.69rem; height: 1.98rem; display: block; }
+.index_home .no-data-part div:nth-child(2) { margin-top: 0.4rem; color: rgb(174, 174, 174); font-size: 0.3rem; }
+.index_home .no-data-part div:nth-child(3) { margin-top: 0.46rem; }
+.index_home .no-data-part div:nth-child(3) span { display: block; width: 4rem; height: 0.74rem; text-align: center; line-height: 0.74rem; color: rgb(255, 255, 255); background: none repeat scroll 0% 0% rgb(70, 144, 255); font-size: 0.3rem; border-radius: 0.12rem; }
+.index_home .major_tip { width: 100%; height: 0.6rem; line-height: 0.6rem; display: inline-block; font-size: 0.3rem; color: rgb(187, 187, 187); text-align: center; margin-top: 0.075rem; }
