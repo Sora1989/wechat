@@ -31,7 +31,6 @@ public class HomeController extends BaseController {
     FileService fileService;
     @GetMapping({ "/", "" })
     String welcome(Model model) {
-
         return "redirect:/blog";
     }
 
