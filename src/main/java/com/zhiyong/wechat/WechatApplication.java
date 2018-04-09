@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @RestController
 @EnableAutoConfiguration
-public class WechatApplication extends WebMvcConfigurationSupport {
+public class WechatApplication {
 
 	@RequestMapping("/")
 	String home() {
