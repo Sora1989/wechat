@@ -10,7 +10,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://139.224.232.166:3306/zhiyong?useUnicode=true&characterEncoding=utf8
     username: root
-    password: 123456
+    password: Mysql_123456
     initialSize: 1
     minIdle: 3
     maxActive: 20

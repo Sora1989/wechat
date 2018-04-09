@@ -1,22 +1,25 @@
 package com.zhiyong.wechat;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.Ordered;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-@SpringBootApplication
+@RestController
+@EnableAutoConfiguration
 public class WechatApplication extends WebMvcConfigurationSupport {
+
+	@RequestMapping("/")
+	String home() {
+		return "Hello World!";
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(WechatApplication.class, args);
 	}
 
-	//在WebMvcConfigurationSupport中是protected修饰的，只能给子类使用
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("forward:static/index.html");
-		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-		super.addViewControllers(registry);
-	}
 }
