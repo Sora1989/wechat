@@ -1,4 +1,4 @@
-package com.zhiyong.wechat.bean;
+package com.zhiyong.wechat.service;
 
 /**
  * @program: wechat
@@ -7,4 +7,6 @@ package com.zhiyong.wechat.bean;
  * @create: 2018/4/9 17:10
  **/
 public class TeacherService {
+
+
 }

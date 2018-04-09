@@ -1,4 +1,4 @@
-package com.zhiyong.wechat.bean.entity;
+package com.zhiyong.wechat.bean;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -8,11 +8,11 @@ import java.util.List;
 
 /**
  * @program: wechat
- * @description: 学生
+ * @description: 教师
  * @author: zjxu
- * @create: 2018/4/2 11:39
+ * @create: 2018/4/2 12:27
  **/
-public class Student implements Serializable {
+public class Teacher implements Serializable {
     private static final long serialVersionUID = 1L;
     //
     private Long userId;

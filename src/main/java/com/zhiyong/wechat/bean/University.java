@@ -1,4 +1,4 @@
-package com.zhiyong.wechat.system.domain;
+package com.zhiyong.wechat.bean;
 
 /**
  * @program: wechat

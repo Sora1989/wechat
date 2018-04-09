@@ -1,4 +1,4 @@
-package com.zhiyong.wechat.bean.entity;
+package com.zhiyong.wechat.bean;
 
 import java.math.BigDecimal;
 
