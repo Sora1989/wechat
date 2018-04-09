@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，保证在调用statement标签时的唯一性 -->
+<mapper namespace="com.lunxuu.mybatis.dao.OrderDao">
+	<!-- 全局的二级缓存默认是开启的，但是如果要想二级缓存生效就必须手动声明缓存标签 -->
+	<cache />
+	
+	<!-- 定义结果集:查询订单，并且查询出下单人信息 -->
+	<resultMap type="Order" id="orderMap" autoMapping="true">
+		<id column="id" property="id" />
+		<!-- 指定自定义对象类型 -->
+		<association property="user" column="id" javaType="User" autoMapping="true">
+			<!-- column指的是订单表中关联的用户ID -->
+			<id column="user_id" property="id" />
+		</association>
+	</resultMap>
+	
+	<!-- 查询订单，并且查询出下单人信息 -->
+	<select id="getOrderWithUser" resultMap="orderMap">
+		SELECT 
+		  *
+		FROM
+		  tb_order AS o 
+		  LEFT JOIN tb_user AS u 
+		    ON o.user_id = u.`id` 
+		WHERE o.id = #{id}
+	</select>
+	
+	<!-- 查询订单，和下单人，以及订单的所有明细信息:
+		extends：继承orderMap中的配置
+	-->
+	<resultMap type="Order" id="orderMap2" autoMapping="true" extends="orderMap">
+		<collection property="list" autoMapping="true" ofType="Orderdetail" javaType="list">
+			<id column="detail_id" property="id"/>
+		</collection>
+	</resultMap>
+	
+	<!-- 查询订单，并且查询出下单人信息,和订单明细信息 -->
+	<select id="getOrderWithUserWithOD" resultMap="orderMap2">
+		SELECT 
+		  *,od.id detail_id
+		FROM
+		  tb_order AS o 
+		  LEFT JOIN tb_user AS u 
+		    ON o.user_id = u.`id` 
+		  LEFT JOIN tb_orderdetail od 
+		    ON od.order_id = o.id 
+		WHERE o.id = #{id}
+	</select>
+	
+	<!-- 查询订单，和下单人，以及订单的所有明细信息,和订单明细对应的商品的信息:
+		extends：继承orderMap2中的配置
+	-->
+	<resultMap type="Order" id="orderMap3" autoMapping="true" extends="orderMap">
+		<collection property="list" autoMapping="true" ofType="Orderdetail" javaType="list">
+			<id column="detail_id" property="id"/>
+			<!-- 每个明细对应的商品信息 -->
+			<association property="item" javaType="Item" autoMapping="true">
+				<id column="item_id" property="id"/>
+			</association>
+		</collection>
+	</resultMap>
+	
+	<!-- 查询订单，并且查询出下单人信息,和订单明细信息，以及订单明细对应的商品信息 -->
+	<select id="getOrderWithUserWithODWithItem" resultMap="orderMap3">
+		SELECT 
+		  *,
+		  od.id AS detail_id 
+		FROM
+		  tb_order AS o 
+		  LEFT JOIN tb_user AS u 
+		    ON o.user_id = u.`id` 
+		  LEFT JOIN tb_orderdetail od 
+		    ON od.order_id = o.id 
+		  LEFT JOIN tb_item AS i 
+		    ON i.id = od.item_id 
+		WHERE o.id = #{id}
+	</select>
+	
+<resultMap type="Orderdetail" id="orderDetailMap">
+	<association property="item" javaType="Item" column="item_id" select="queryItem" />
+</resultMap>
+
+<select id="queryOrderDetail" resultMap="orderDetailMap">
+	select *,item_id as itemId from tb_orderdetail where order_id=#{id}
+</select>
+
+<select id="queryUser" resultType="User">select * from tb_user where id=#{id}</select>
+
+<select id="queryItem" resultType="Item">select * from tb_item where id=#{id}</select>
+
+<resultMap type="Order" id="orderMap4" autoMapping="true">
+	<association property="user" javaType="User" select="queryUser" column="userId"/>
+	<collection property="list" ofType="Orderdetail" 
+	javaType="list" select="queryOrderDetail" column="id" />
+</resultMap>
+
+<select id="queryOrderLazy" resultMap="orderMap4">
+	select id,user_id,user_id as userId,order_number from tb_order where id=#{id}
+</select>
+
+</mapper>
+  

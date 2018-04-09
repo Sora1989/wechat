@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace命名空间，保证在调用statement标签时的唯一性 -->
+<mapper namespace="com.lunxuu.mybatis.dao.UserDao">
+	<!-- 全局的二级缓存默认是开启的，但是如果要想二级缓存生效就必须手动声明缓存标签 -->
+	<cache />
+	<!--
+		定义一个查询语句
+		id：当前statement的唯一标识
+		resultType：返回的结果类型
+	-->
+	<select id="getById" resultType="User">
+		select *,user_name as "userName" from tb_user where id=#{id}
+	</select>
+	
+	<!-- 定义查询所有用户的select标签 -->
+	<select id="getAll" resultType="User">
+		select * from tb_user
+	</select>
+	
+	<!-- 添加的标签 -->
+	<insert id="add" parameterType="User" 
+	useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+		INSERT  INTO `tb_user`
+		(`id`,`user_name`,`password`,`name`,`age`,`sex`,`birthday`,`created`,`updated`) 
+		VALUES 
+		(null,#{userName},#{password},#{name},#{age},#{sex},#{birthday},#{created},#{updated})
+	</insert>
+	
+	<!-- 更新操作 -->
+	<update id="update" parameterType="User">
+		update tb_user
+		<set>
+			user_name=#{userName},
+			password=#{password},
+			name=#{name},
+			age=#{age},
+			sex=#{sex},
+			birthday=#{birthday},
+			updated=NOW(),
+		</set>
+		where id=#{id}
+	</update>
+	
+	<!-- 删除操作 -->
+	<delete id="delById">
+		delete from tb_user where id=#{value}
+	</delete>
+	
+	<!-- 将表名作为条件进行查询 -->
+	<select id="getByIdAndTableName" resultType="User" parameterType="string">
+		select * from ${value}
+	</select>
+	
+	
+	<!-- 将表名作为条件进行查询 -->
+	<select id="login" resultType="User" parameterType="string">
+		select * from tb_user where user_name=#{userName} and password=#{password}
+	</select>
+	
+	<!-- 自定义返回数据的类型 -->
+	<resultMap type="User" id="userMap" autoMapping="true">
+		<!-- 主键，一般不省略 -->
+		<id property="id" column="id"/>
+		<result property="userName" column="user_name"/>
+	</resultMap>
+	
+	<!-- 将表名作为条件进行查询 -->
+	<select id="login2" resultMap="userMap">
+		select * from tb_user where user_name=#{userName} and password=#{password}
+	</select>
+	
+	<!-- 定义个sql片段，一般放一些比较常用的sql片段 -->
+	<sql id="userColumns">
+		`id`,`user_name`,`password`,`name`,`age`,`sex`,`birthday`,`created`,`updated`
+	</sql>
+	<select id="getById2" resultType="User">
+		select <include refid="userColumns" /> from tb_user where id=${value}
+	</select>
+	
+	<!-- 在查询的时候，传入的是一个User，如果user对象的属性中有值，
+	则将这个值作为条件查询，如果没有，则不加在查询条件中 -->
+	<select id="getAllByUser" resultType="User">
+		select * from tb_user
+		<where>
+			<if test="userName != null and userName != ''">
+				and user_name like '%${userName}%'
+			</if>
+			<if test="name != null and name != ''">
+				and name like #{name}
+			</if>
+			<if test="password != null and password != ''">
+				and password=#{password}
+			</if>
+			<if test="sex != null">
+				and sex=#{sex}
+			</if>
+		</where>
+	</select>
+	
+	<!-- foreach的使用 -->
+	<select id="getByIds" parameterType="list" resultType="User">
+		select * from tb_user where id in
+		<foreach collection="ids" open="(" separator="," close=")" item="id">
+			#{id}
+		</foreach>
+	</select>
+</mapper>
+  
